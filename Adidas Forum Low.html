@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Producto - SmartStep</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .logo {
+            color: white;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 24px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .button {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .cart-container {
+            position: relative;
+            background-color: transparent;
+            border: 2px solid white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .cart-icon {
+            color: white;
+            font-size: 20px;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: red;
+            color: white;
+            font-size: 12px;
+            padding: 2px 6px;
+            border-radius: 50%;
+        }
+
+        .product-detail {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 60% 40%;
+            gap: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .product-images {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .main-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .thumbnail-container {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+        }
+
+        .thumbnail {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            cursor: pointer;
+            border-radius: 5px;
+            border: 2px solid transparent;
+        }
+
+        .thumbnail:hover {
+            border-color: #333;
+        }
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-size: 28px;
+            color: #e44d26;
+            margin-bottom: 20px;
+        }
+
+        .product-description {
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .color-options {
+            margin-bottom: 30px;
+        }
+
+        .color-title {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .color-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .color-button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid #ddd;
+            cursor: pointer;
+        }
+
+        .color-button.active {
+            border-color: #333;
+        }
+
+        .size-options {
+            margin-bottom: 30px;
+        }
+
+        .size-title {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .size-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .size-button {
+            padding: 10px 20px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            background: white;
+        }
+
+        .size-button:hover {
+            border-color: #333;
+        }
+
+        .size-button.active {
+            background: #333;
+            color: white;
+            border-color: #333;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .buy-now, .add-to-cart {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .buy-now {
+            background-color: #333;
+            color: white;
+        }
+
+        .add-to-cart {
+            background-color: #e44d26;
+            color: white;
+        }
+
+        .buy-now:hover, .add-to-cart:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .product-detail {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+ <div class="header">
+    <div class="logo">SmartStep</div>
+    <div class="nav-buttons">
+        <a href="pr.html" class="button">Volver</a>
+        <a href="coleccion-hombre.html" class="button">Colección hombre</a>
+        <button class="button">Colección mujer</button>
+        <button class="button">Colección niños</button>
+        <div class="right-buttons">
+            <a href="login.html" class="button">Iniciar sesión</a>
+            <a href="carrito.html" class="cart-container">
+                <i class="fas fa-shopping-cart cart-icon"></i>
+                <span class="cart-count">0</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+    <div class="product-detail">
+    <div class="product-images">
+        <!-- Imagen principal -->
+        <img src="Adidas Forum Low azules.jpg" alt="Adidas forum" class="main-image">
+        <div class="thumbnail-container">
+            <!-- Miniaturas -->
+            <img src="Adidas Forum Low azules.jpg" alt="Vista 1" class="thumbnail">
+            <img src="Adidas Forum Low azules laterales.jpg" alt="Vista 2" class="thumbnail">
+       </div>
+</div>
+
+        <div class="product-info">
+            <h1 class="product-title">Adidad Forum</h1>
+            <div class="product-price">$2100</div>
+            <p class="product-description">
+                Las Adidas Forum son comodas y brillates para tus oufits en esta temporada de invirno ademas de estar a la moda 
+            </p>
+
+            <div class="color-options">
+                <div class="color-title">Colores disponibles</div>
+                <div class="color-buttons">
+                    <button class="color-button active" style="background-color: white;"></button>
+                    <button class="color-button" style="background-color: black;"></button>
+                    <button class="color-button" style="background-color: #e44d26;"></button>
+                    <button class="color-button" style="background-color: #4a90e2;"></button>
+                    <button class="color-button" style="background-color: #50c878;"></button>
+                </div>
+            </div>
+
+            <div class="size-options">
+                <div class="size-title">Tallas disponibles</div>
+                <div class="size-buttons">
+                    <button class="size-button">38</button>
+                    <button class="size-button">39</button>
+                    <button class="size-button active">40</button>
+                    <button class="size-button">41</button>
+                    <button class="size-button">42</button>
+                    <button class="size-button">43</button>
+                    <button class="size-button">44</button>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                 <a href="pago.html">
+                <button class="buy-now">Comprar ahora</button>
+                  </a>
+                <button class="add-to-cart">Agregar al carrito</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Clase para manejar el carrito
+        class ShoppingCart {
+            constructor() {
+                this.items = [];
+                this.loadCart();
+                this.updateCartCount();
+            }
+
+            loadCart() {
+                const savedItems = localStorage.getItem('cartItems');
+                if (savedItems) {
+                    this.items = JSON.parse(savedItems);
+                }
+            }
+
+            addItem(item) {
+                this.items.push(item);
+                this.saveCart();
+                this.updateCartCount();
+            }
+
+            saveCart() {
+                localStorage.setItem('cartItems', JSON.stringify(this.items));
+            }
+
+            updateCartCount() {
+                const cartCount = document.querySelector('.cart-count');
+                if (cartCount) {
+                    cartCount.textContent = this.items.length;
+                }
+            }
+        }
+
+        // Crear instancia del carrito
+        const cart = new ShoppingCart();
+
+        // Definir las imágenes para cada color
+        const productImages = {
+            'white': {
+                main: 'Adidas Forum Low blancas.jpg',
+                thumbnails: [
+                    'Adidas Forum Low blancas laterales.jpg',
+                    'Adidas Forum Low blancas inferiores .jpg',
+                    
+                ]
+            },
+          'black': {
+    main: 'Adidas Forum Low negro.jpg',
+    thumbnails: [
+        'Adidas Forum Low negro inferiores .jpg',
+        'Adidas Forum Low negro laterales.jpg',
+        
+    ]
+},
+            'rgb(228, 77, 38)': {
+                main: 'Adidas Forum Low rojo.jpg',
+                thumbnails: [
+                    'Adidas Forum Low rojo laterales .jpg',
+                    'Adidas Forum Low rojo inferiores .jpg',
+                                   
+                      ]
+            },
+            'rgb(74, 144, 226)': {
+                main: 'Adidas Forum Low azules.jpg',
+                thumbnails: [
+                    'Adidas Forum Low azules laterales.jpg',
+                    'Adidas Forum Low azul inferiores .jpg',
+                    
+                ]
+            },
+            'rgb(80, 200, 120)': {
+                main: 'Adidas Forum Low verde.jpg',
+                thumbnails: [
+                    'Adidas Forum Low verde inferior.jpg',
+                    'Adidas Forum Low verde laterales.jpg',
+                    
+                ]
+            }
+        };
+
+        // Función para actualizar las imágenes
+        function updateImages(color) {
+            const mainImage = document.querySelector('.main-image');
+            const thumbnailContainer = document.querySelector('.thumbnail-container');
+            
+            if (productImages[color]) {
+                mainImage.src = productImages[color].main;
+                thumbnailContainer.innerHTML = productImages[color].thumbnails.map(src => `
+                    <img src="${src}" alt="Vista" class="thumbnail" onclick="document.querySelector('.main-image').src = this.src">
+                `).join('');
+            }
+        }
+
+        // Para cambiar la imagen principal cuando se hace clic en las miniaturas
+        document.querySelectorAll('.thumbnail').forEach(thumb => {
+            thumb.addEventListener('click', function() {
+                document.querySelector('.main-image').src = this.src;
+            });
+        });
+
+        // Para manejar la selección de colores
+        document.querySelectorAll('.color-button').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('.color-button').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                updateImages(this.style.backgroundColor);
+            });
+        });
+
+        // Para manejar la selección de tallas
+        document.querySelectorAll('.size-button').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('.size-button').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Para el botón de agregar al carrito
+        document.querySelector('.add-to-cart').addEventListener('click', function() {
+            const selectedColor = document.querySelector('.color-button.active').style.backgroundColor;
+            const selectedSize = document.querySelector('.size-button.active').textContent;
+            
+            const product = {
+                name: document.querySelector('.product-title').textContent,
+                price: document.querySelector('.product-price').textContent.replace('$', ''),
+                image: document.querySelector('.main-image').src,
+                color: selectedColor,
+                size: selectedSize
+            };
+            
+            cart.addItem(product);
+            alert('Producto agregado al carrito');
+        });
+
+        // Para el botón de comprar ahora
+        document.querySelector('.buy-now').addEventListener('click', function() {
+            const selectedColor = document.querySelector('.color-button.active').style.backgroundColor;
+            const selectedSize = document.querySelector('.size-button.active').textContent;
+            
+            const product = {
+                name: document.querySelector('.product-title').textContent,
+                price: document.querySelector('.product-price').textContent.replace('$', ''),
+                image: document.querySelector('.main-image').src,
+                color: selectedColor,
+                size: selectedSize
+            };
+            
+            cart.addItem(product);
+            window.location.href = 'carrito.html';
+        });
+    </script>
+</body>
+</html>
