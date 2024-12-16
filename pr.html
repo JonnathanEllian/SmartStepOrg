@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartStep</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .hero-section {
+            height: 100vh;
+            background-image: url('t.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .logo {
+            color: white;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 24px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+        }
+
+        .right-buttons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-left: 20px;
+        }
+
+        .button {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 10px 20px;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .button:hover {
+            background-color: white;
+            color: black;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .cart-container {
+            position: relative;
+            background-color: transparent;
+            border: 2px solid white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .cart-container:hover {
+            background-color: white;
+        }
+
+        .cart-icon {
+            color: white;
+            font-size: 20px;
+        }
+
+        .cart-container:hover .cart-icon {
+            color: black;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: red;
+            color: white;
+            font-size: 12px;
+            padding: 2px 6px;
+            border-radius: 50%;
+        }
+
+        .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+        }
+
+        .hero-text h1 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 20px;
+        }
+
+        .products-section {
+            padding: 50px;
+            background-color: #f5f5f5;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .product-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .product-card img {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .product-card h3 {
+            margin: 10px 0;
+            color: #333;
+            font-size: 18px;
+        }
+
+        .product-card p {
+            color: #e44d26;
+            font-weight: bold;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-section">
+        <div class="header">
+            <div class="logo">SmartStep</div>
+            <div class="nav-buttons">
+             <a href="cole h.html">
+                <button class="button">Colección hombre</button>
+                </a>
+                 <a href="ColM.html">
+                <button class="button">Colección mujer</button>
+                 </a>
+                <a href="Coleccion niños.html">
+                <button class="button">Colección niños</button>
+                 </a>
+                <div class="right-buttons">
+                <a href="login.html">
+                    <button class="button">Iniciar sesión</button>
+                       </a>
+                    <a href="carrito.html" class="cart-container">
+                        <i class="fas fa-shopping-cart cart-icon"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-text">
+            <h1>Eleva tu look con nosotros</h1>
+            <p>SmartStep nos encargamos de tus looks y de tu estilo</p>
+        </div>
+    </div>
+<div class="products-grid">
+    <div class="product-card">
+        <a href="dl.html">
+            <img src="https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/b7d9211c-26e7-431a-ac24-b0540fb3c00f/air-force-1-07-zapatillas-GjGXSP.png" alt="Nike Air Force 1">
+            <h3>Nike Air Force 1</h3>
+            <p>$3100</p>
+        </a>
+    </div>
+
+    <div class="product-card">
+        <a href="Adidas Forum Low.html">
+            <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/09c5ea6df1bd4be6baaaac5e003e7047_9366/Zapatilla_Forum_Low_Blanco_FY7756_01_standard.jpg" alt="Adidas Forum Low">
+            <h3>Adidas Forum Low</h3>
+            <p>$1700</p>
+        </a>
+    </div>
+
+
+    <div class="product-card">
+        <a href="puma Court Rider.html">
+            <img src="https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_600,h_600/global/374915/01/sv01/fnd/EEA/fmt/png/Zapatillas-de-baloncesto-Court-Rider" alt="Puma Court Rider">
+            <h3>Puma Court Rider</h3>
+            <p>$2100</p>
+        </a>
+    </div>
+
+    <div class="product-card">
+        <a href="New Balance 574.html">
+            <img src="https://nb.scene7.com/is/image/NB/ml574evw_nb_02_i?$pdpflexf2$&wid=440&hei=440" alt="New Balance 574">
+            <h3>New Balance 574</h3>
+            <p>$1200</p>
+        </a>
+    </div>
+
+    <div class="product-card">
+        <a href="Air Jordan 1 Mid.html">
+            <img src="jordan.jpg">
+            <h3>Air Jordan 1 Mid</h3>
+            <p>$2800</p>
+        </a>
+    </div>
+
+    <div class="product-card">
+        <a href="Adidas Superstar.html">
+            <img src="Adidas super.jpg" />
+            <h3>Adidas Superstar</h3>
+            <p>$1800</p>
+        </a>
+    </div>
+
+    <div class="product-card">
+        <a href="Vans.html">
+            <img src="https://images.vans.com/is/image/VansEU/VN000D3HY28-HERO?$583x583$" alt="Vans Old Skool">
+            <h3>Vans Old Skool</h3>
+            <p>$1100</p>
+        </a>
+    </div>
+
+    <div class="product-card">
+        <a href="Reebok Club C 85.html">
+            <img src="rebokc.jpg">
+            <h3>Reebok Club C 85</h3>
+            <p>$1400</p>
+        </a>
+    </div>
+</div>   
+      
+
+    <script>
+        class ShoppingCart {
+            constructor() {
+                this.items = [];
+                this.loadCart();
+                this.updateCartCount();
+            }
+
+            loadCart() {
+                const savedItems = localStorage.getItem('cartItems');
+                if (savedItems) {
+                    this.items = JSON.parse(savedItems);
+                }
+            }
+
+            updateCartCount() {
+                const cartCount = document.querySelector('.cart-count');
+                if (cartCount) {
+                    cartCount.textContent = this.items.length;
+                }
+            }
+        }
+
+        const cart = new ShoppingCart();
+    </script>
+</body>
+</html>
